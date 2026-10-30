@@ -552,3 +552,21 @@ a:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+@media print {
+  /* Hide navigation and buttons */
+  nav, footer, .buttons { 
+    display: none; 
+  }
+  
+  /* Force background to white and text to black */
+  body, html { 
+    background-color: white !important; 
+    color: black !important; 
+  }
+  
+  /* Make sure images don't break across pages */
+  img { 
+    page-break-inside: avoid; 
+  }
+}
