@@ -1,32 +1,27 @@
-
 const menuToggle = document.querySelector("#menu-toggle");
 const navLinks = document.querySelector("#nav-links");
 
-function toggleMenu() {
-  const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+if (menuToggle && navLinks) {
+  const setMenu = (open) => {
+    menuToggle.classList.toggle("active", open);
+    navLinks.classList.toggle("active", open);
+    menuToggle.setAttribute("aria-expanded", String(open));
+    menuToggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+  };
 
-  menuToggle.setAttribute("aria-expanded", String(!isOpen));
-  menuToggle.setAttribute(
-    "aria-label",
-    isOpen ? "Open navigation menu" : "Close navigation menu"
-  );
+  menuToggle.addEventListener("click", () => {
+    setMenu(menuToggle.getAttribute("aria-expanded") !== "true");
+  });
 
-  menuToggle.classList.toggle("active", !isOpen);
-  navLinks.classList.toggle("active", !isOpen);
+  navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setMenu(false));
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") setMenu(false);
+  });
 }
 
-menuToggle.addEventListener("click", toggleMenu);
-
-// Close the mobile menu when a navigation link is selected.
-navLinks.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Open navigation menu");
-
-    menuToggle.classList.remove("active");
-    navLinks.classList.remove("active");
-  });
+document.querySelectorAll("#year").forEach((year) => {
+  year.textContent = new Date().getFullYear();
 });
-
-// Update the footer year automatically.
-document.querySelector("#year").textContent = new Date().getFullYear();

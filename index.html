@@ -1,219 +1,79 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta name="theme-color" content="#050b13">
-  <meta name="description" content="John Kimani's web development portfolio. Explore my projects, skills, and journey as a developer.">
-
+  <meta name="theme-color" content="#07111f">
+  <meta name="description" content="John Kimani — aspiring web developer building accessible, responsive websites.">
   <title>John Kimani | Web Developer</title>
-
   <link rel="stylesheet" href="styles.css">
-
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-  >
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <script src="script.js" defer></script>
 </head>
-
 <body>
-  <!-- Navigation -->
   <header class="site-header">
     <nav class="navbar" aria-label="Main navigation">
-
-      <a href="#home" class="logo" aria-label="John Kimani home">
-        <span class="logo-icon">
-          <i class="fas fa-code"></i>
-        </span>
-
-        <span class="logo-text">
-          john<span class="highlight">kimani</span>
-        </span>
+      <a href="index.html" class="logo" aria-label="John Kimani home">
+        <span class="logo-icon"><i class="fas fa-code"></i></span>
+        <span>john<span class="highlight">kimani</span></span>
       </a>
-
-      <button
-        class="hamburger"
-        id="menu-toggle"
-        type="button"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        aria-controls="nav-links"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
+      <button class="hamburger" id="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
       </button>
-
       <ul class="nav-links" id="nav-links">
-        <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="project.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
-
     </nav>
   </header>
 
   <main>
-    <!-- Hero banner -->
     <section class="hero" id="home">
-      <div class="hero-overlay"></div>
-
-      <div class="hero-content">
-
-        <div class="badge">
-          <i class="fas fa-rocket"></i>
-          Aspiring Web Developer
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Aspiring web developer</p>
+          <h1>John <span class="highlight">Kimani</span></h1>
+          <p class="hero-subtitle">I build thoughtful experiences for the web.</p>
+          <p class="hero-description">Turning ideas into clean, responsive websites with HTML, CSS and JavaScript — while learning something new every day.</p>
+          <div class="hero-actions">
+            <a href="project.html" class="btn btn-primary"><i class="fas fa-arrow-right"></i> View projects</a>
+            <a href="about.html" class="btn btn-secondary"><i class="fas fa-user"></i> About me</a>
+          </div>
+          <div class="social-icons" aria-label="Social profiles">
+            <a href="https://github.com/kimanit39" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:your-email@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
         </div>
-
-        <p class="intro">HELLO, WORLD! I'M</p>
-
-        <h1>
-          John <span class="highlight">Kimani</span>
-        </h1>
-
-        <h2>
-          Building the Web,<br>
-          <span class="highlight">One Line at a Time.</span>
-        </h2>
-
-        <p class="hero-description">
-          Passionate about creating beautiful, responsive websites
-          and learning new technologies every day.
-        </p>
-
-        <div class="hero-buttons">
-          <a href="#projects" class="btn btn-primary">
-            <i class="fas fa-eye"></i>
-            View My Work
-          </a>
-
-          <a href="#about" class="btn btn-secondary">
-            <i class="fas fa-user"></i>
-            About Me
-          </a>
-        </div>
-
-        <div class="social-icons" aria-label="Social profiles">
-          <a
-            href="https://github.com/kimanit39"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-          >
-            <i class="fab fa-github"></i>
-          </a>
-
-          <!-- Replace # with your real profile URLs -->
-          <a href="#" aria-label="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-
-          <a href="#" aria-label="X">
-            <i class="fab fa-x-twitter"></i>
-          </a>
-
-          <a href="#" aria-label="DEV Community">
-            <i class="fab fa-dev"></i>
-          </a>
-        </div>
-
-        <a href="#about" class="scroll-down">
-          <i class="fas fa-angles-down"></i>
-          <span>Scroll to explore</span>
-        </a>
-
       </div>
     </section>
 
-    <!-- About section -->
-    <section class="content-section" id="about">
-      <p class="section-label">GET TO KNOW ME</p>
-      <h2>About <span class="highlight">Me</span></h2>
-
-      <p>
-        I'm John Kimani, an aspiring web developer focused on
-        building useful, responsive, and user-friendly websites.
-        I'm learning by creating projects and improving my skills
-        one step at a time.
-      </p>
-    </section>
-
-    <!-- Projects section -->
-    <section class="content-section" id="projects">
-      <p class="section-label">WHAT I'M BUILDING</p>
-      <h2>My <span class="highlight">Projects</span></h2>
-
-      <p>
-        This is where I'll showcase my web development projects,
-        what I learned, and the technologies I used.
-      </p>
-
-      <!-- Add your real project cards here -->
-    </section>
-
-    <!-- Skills section -->
     <section class="content-section" id="skills">
-      <p class="section-label">MY LEARNING JOURNEY</p>
-      <h2>My <span class="highlight">Skills</span></h2>
-
-      <div class="skills-grid">
-        <article class="skill-card">
-          <i class="fab fa-html5"></i>
-          <h3>HTML5</h3>
-          <p>Page structure and semantic markup.</p>
-        </article>
-
-        <article class="skill-card">
-          <i class="fab fa-css3-alt"></i>
-          <h3>CSS3</h3>
-          <p>Layouts, responsive design, and styling.</p>
-        </article>
-
-        <article class="skill-card">
-          <i class="fab fa-js"></i>
-          <h3>JavaScript</h3>
-          <p>Learning interactive website behavior.</p>
-        </article>
-
-        <article class="skill-card">
-          <i class="fab fa-github"></i>
-          <h3>Git & GitHub</h3>
-          <p>Version control and project sharing.</p>
-        </article>
+      <div class="section-heading">
+        <p class="section-label">Core toolkit</p>
+        <h2>Skills I'm <span class="highlight">growing</span></h2>
       </div>
-    </section>
-
-    <!-- Contact section -->
-    <section class="content-section contact-section" id="contact">
-      <p class="section-label">LET'S CONNECT</p>
-      <h2>Have a project <span class="highlight">in mind?</span></h2>
-
-      <p>I'd love to hear about your website idea.</p>
-
-      <a href="mailto:your-email@example.com" class="btn btn-primary">
-        <i class="fas fa-envelope"></i>
-        Contact Me
-      </a>
+      <div class="skills-grid">
+        <article class="skill-card"><i class="fab fa-html5"></i><h3>HTML5</h3><p>Semantic, accessible page structure.</p></article>
+        <article class="skill-card"><i class="fab fa-css3-alt"></i><h3>CSS3</h3><p>Responsive layouts and polished interfaces.</p></article>
+        <article class="skill-card"><i class="fab fa-js"></i><h3>JavaScript</h3><p>Interactive and user-focused behavior.</p></article>
+        <article class="skill-card"><i class="fab fa-python"></i><h3>Python</h3><p>Building logic and exploring backend development.</p></article>
+        <article class="skill-card"><i class="fab fa-git-alt"></i><h3>Git & GitHub</h3><p>Version control and project sharing.</p></article>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <a href="#home" class="footer-logo">
-      john<span class="highlight">kimani</span>
-    </a>
-
-    <p>Building my future, one project at a time.</p>
-
-    <p class="copyright">
-      &copy; <span id="year">2026</span> John Kimani.
-      All rights reserved.
-    </p>
+    <div class="footer-inner">
+      <div>
+        <a href="index.html" class="logo"><span>john<span class="highlight">kimani</span></span></a>
+        <p>&copy; <span id="year">2026</span> John Kimani.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="project.html">Projects</a><a href="contact.html">Contact</a>
+      </nav>
+    </div>
   </footer>
 </body>
 </html>

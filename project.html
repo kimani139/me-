@@ -1,451 +1,57 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Projects | Portfolio</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | John Kimani</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar" aria-label="Main navigation">
+      <a href="index.html" class="logo"><span class="logo-icon"><i class="fas fa-code"></i></span><span>john<span class="highlight">kimani</span></span></a>
+      <button class="hamburger" id="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="project.html" class="active">Projects</a></li><li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <style>
-      /* === RESET & BASE === */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family:
-          "Segoe UI",
-          -apple-system,
-          BlinkMacSystemFont,
-          Roboto,
-          Oxygen,
-          Ubuntu,
-          Cantarell,
-          sans-serif;
-        background: #f0f4f8;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        color: #1a202c;
-        line-height: 1.6;
-      }
-
-      /* === HEADER === */
-      header {
-        background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
-        color: white;
-        padding: 40px 20px 28px;
-        text-align: center;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        position: relative;
-        overflow: hidden;
-      }
-
-      header::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, #48bb78, #4299e1, #ed8936, #48bb78);
-        background-size: 300% 100%;
-        animation: shimmer 4s ease-in-out infinite;
-      }
-
-      @keyframes shimmer {
-        0%,
-        100% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-      }
-
-      header h1 {
-        font-size: 2.8rem;
-        font-weight: 700;
-        letter-spacing: -0.02em;
-        margin-bottom: 12px;
-        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-      }
-
-      header h1::after {
-        content: "";
-        display: block;
-        width: 60px;
-        height: 3px;
-        background: #48bb78;
-        margin: 10px auto 0;
-        border-radius: 2px;
-      }
-
-      /* === NAVIGATION === */
-      nav ul {
-        list-style: none;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 6px 20px;
-        padding: 14px 0 4px;
-        margin: 0;
-      }
-
-      nav ul li a {
-        color: rgba(255, 255, 255, 0.85);
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 1rem;
-        padding: 6px 14px;
-        border-radius: 30px;
-        transition: all 0.3s ease;
-        border: 2px solid transparent;
-      }
-
-      nav ul li a:hover {
-        color: white;
-        background: rgba(255, 255, 255, 0.12);
-        border-color: rgba(255, 255, 255, 0.2);
-        transform: translateY(-1px);
-      }
-
-      nav ul li a[href="projects.html"] {
-        background: rgba(255, 255, 255, 0.15);
-        border-color: rgba(255, 255, 255, 0.25);
-        color: white;
-      }
-
-      /* === MAIN === */
-      main {
-        flex: 1;
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 48px 24px 60px;
-        width: 100%;
-      }
-
-      /* === SECTION HEADER === */
-      section:first-of-type {
-        text-align: center;
-        margin-bottom: 48px;
-      }
-
-      section:first-of-type h2 {
-        font-size: 2.2rem;
-        font-weight: 700;
-        color: #2d3748;
-        letter-spacing: -0.01em;
-        position: relative;
-        display: inline-block;
-      }
-
-      section:first-of-type h2::after {
-        content: "";
-        display: block;
-        width: 50%;
-        height: 3px;
-        background: linear-gradient(90deg, #4299e1, #48bb78);
-        margin: 8px auto 0;
-        border-radius: 2px;
-      }
-
-      section:first-of-type p {
-        font-size: 1.15rem;
-        color: #4a5568;
-        max-width: 600px;
-        margin: 12px auto 0;
-        background: white;
-        padding: 16px 28px;
-        border-radius: 12px;
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-        border-left: 4px solid #4299e1;
-      }
-
-      /* === PROJECTS GRID === */
-      .projects {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 28px;
-        margin-top: 8px;
-      }
-
-      /* === CARDS === */
-      .card {
-        background: white;
-        border-radius: 20px;
-        padding: 32px 28px 28px;
-        box-shadow:
-          0 8px 32px -8px rgba(0, 0, 0, 0.08),
-          0 2px 8px -4px rgba(0, 0, 0, 0.02);
-        transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 1px solid rgba(0, 0, 0, 0.04);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, #4299e1, #48bb78);
-        border-radius: 20px 20px 0 0;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-      }
-
-      .card:hover::before {
-        opacity: 1;
-      }
-
-      .card:hover {
-        transform: translateY(-8px);
-        box-shadow:
-          0 20px 60px -16px rgba(43, 108, 176, 0.18),
-          0 4px 20px -8px rgba(0, 0, 0, 0.04);
-        border-color: rgba(66, 153, 225, 0.15);
-      }
-
-      .card h3 {
-        font-size: 1.35rem;
-        font-weight: 600;
-        color: #2d3748;
-        margin-bottom: 12px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .card h3::before {
-        content: "◆";
-        color: #4299e1;
-        font-size: 0.8rem;
-        opacity: 0.7;
-      }
-
-      .card p {
-        color: #4a5568;
-        font-size: 1rem;
-        line-height: 1.7;
-        margin: 0;
-      }
-
-      /* Card icons (decorative) */
-      .card:nth-child(1) {
-        border-top: 4px solid #4299e1;
-      }
-      .card:nth-child(2) {
-        border-top: 4px solid #48bb78;
-      }
-      .card:nth-child(3) {
-        border-top: 4px solid #ed8936;
-      }
-
-      .card:nth-child(1) h3::before {
-        color: #4299e1;
-      }
-      .card:nth-child(2) h3::before {
-        color: #48bb78;
-      }
-      .card:nth-child(3) h3::before {
-        color: #ed8936;
-      }
-
-      /* === FOOTER === */
-      footer {
-        background: #1a202c;
-        color: #a0aec0;
-        text-align: center;
-        padding: 24px 20px;
-        font-size: 0.95rem;
-        border-top: 3px solid #2d3748;
-        margin-top: auto;
-      }
-
-      footer p {
-        max-width: 1100px;
-        margin: 0 auto;
-      }
-
-      footer p::before {
-        content: "🚀 ";
-        font-size: 1rem;
-      }
-
-      /* === RESPONSIVE === */
-      @media (max-width: 768px) {
-        header h1 {
-          font-size: 2rem;
-        }
-
-        nav ul {
-          gap: 4px 12px;
-        }
-
-        nav ul li a {
-          font-size: 0.9rem;
-          padding: 4px 12px;
-        }
-
-        section:first-of-type h2 {
-          font-size: 1.6rem;
-        }
-
-        section:first-of-type p {
-          font-size: 1rem;
-          padding: 14px 18px;
-        }
-
-        .projects {
-          grid-template-columns: 1fr;
-          gap: 20px;
-        }
-
-        .card {
-          padding: 24px 20px 22px;
-        }
-
-        .card h3 {
-          font-size: 1.2rem;
-        }
-
-        main {
-          padding: 30px 16px 40px;
-        }
-
-        footer {
-          padding: 18px 16px;
-          font-size: 0.85rem;
-        }
-      }
-
-      @media (max-width: 400px) {
-        header h1 {
-          font-size: 1.6rem;
-        }
-
-        nav ul {
-          gap: 2px 8px;
-        }
-
-        nav ul li a {
-          font-size: 0.8rem;
-          padding: 3px 10px;
-        }
-
-        section:first-of-type h2 {
-          font-size: 1.3rem;
-        }
-      }
-
-      /* === FADE-IN ANIMATION === */
-      .card {
-        opacity: 0;
-        animation: fadeUp 0.6s ease forwards;
-      }
-
-      .card:nth-child(1) {
-        animation-delay: 0.1s;
-      }
-      .card:nth-child(2) {
-        animation-delay: 0.2s;
-      }
-      .card:nth-child(3) {
-        animation-delay: 0.3s;
-      }
-
-      @keyframes fadeUp {
-        from {
-          opacity: 0;
-          transform: translateY(24px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      section:first-of-type {
-        opacity: 0;
-        animation: fadeUp 0.6s ease 0.05s forwards;
-      }
-
-      /* === SCROLLBAR === */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-
-      ::-webkit-scrollbar-track {
-        background: #edf2f7;
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background: #4299e1;
-        border-radius: 4px;
-      }
-
-      ::-webkit-scrollbar-thumb:hover {
-        background: #2b6cb0;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>My Projects</h1>
-
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="semantic.html">Semantic</a></li>
-        </ul>
-      </nav>
+  <main class="page-main">
+    <header class="page-header">
+      <p class="section-label">Selected work</p>
+      <h1>Projects & <span class="highlight">practice</span></h1>
+      <p>Small projects built to explore layout, semantics and interaction — and to make every next build better.</p>
     </header>
 
-    <main>
-      <section>
-        <h2>My Portfolio Projects</h2>
-        <p>
-          Here are some of the projects I have completed while learning web
-          development Jarvis building .
-        </p>
-      </section>
-
-      <section class="projects">
-        <article class="card">
-          <h3>Personal Website</h3>
-          <p>
-            A simple personal website built with HTML and CSS to introduce
-            myself and share my learning journey.
-          </p>
+    <section class="content-section" style="padding-inline: 0;">
+      <div class="project-grid">
+        <article class="project-card">
+          <p class="project-number">01 / PERSONAL</p>
+          <h3>Portfolio Website</h3>
+          <p>A responsive personal portfolio designed to present my journey, skills and selected learning projects.</p>
+          <div class="tag-row"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
         </article>
-
-        <article class="card">
+        <article class="project-card">
+          <p class="project-number">02 / SEMANTICS</p>
           <h3>Semantic HTML Page</h3>
-          <p>
-            A webpage demonstrating the use of semantic HTML elements such as
-            header, main, section, article, aside, and footer.
-          </p>
+          <p>A structured webpage exploring meaningful elements such as header, main, article, aside and footer.</p>
+          <div class="tag-row"><span class="tag">HTML5</span><span class="tag">Accessibility</span></div>
         </article>
-
-        <article class="card">
-          <h3>CSS Box Model Practice</h3>
-          <p>
-            A practice page showing how content, padding, borders, and margins
-            work together using the CSS Box Model.
-          </p>
+        <article class="project-card">
+          <p class="project-number">03 / CSS</p>
+          <h3>Box Model Practice</h3>
+          <p>A practical study of content, padding, borders, margins and modern CSS layout behavior.</p>
+          <div class="tag-row"><span class="tag">CSS3</span><span class="tag">Layout</span></div>
         </article>
-      </section>
-    </main>
+      </div>
+    </section>
+  </main>
 
-    <footer>
-      <p>&copy; 2026 john kimani. All rights reserved.</p>
-    </footer>
-  </body>
+  <footer class="site-footer">
+    <div class="footer-inner"><div><a href="index.html" class="logo">john<span class="highlight">kimani</span></a><p>&copy; <span id="year">2026</span> John Kimani.</p></div><nav class="footer-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="project.html">Projects</a><a href="contact.html">Contact</a></nav></div>
+  </footer>
+</body>
 </html>
